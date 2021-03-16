@@ -18,6 +18,5 @@ if __name__ == '__main__':
         Library.append_kata_id_to_txt('katas.txt', katas)
         total_katas -= len(katas)
         print(f"{fixed_total_kata - total_katas} of {fixed_total_kata} katas retrieved")
-        # now, to clear the screen
         page += 1
         sleep((interval + timedelta(seconds=1)).total_seconds())
