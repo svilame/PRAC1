@@ -27,19 +27,28 @@ class KataScrapper:
         return requests.get(url).content
 
     @staticmethod
-    def get_kata_id_kata(html: str) -> str:
-        return BeautifulSoup(html, features="html.parser").select(
-            '#shell_content > div.px-0.w-full > div > div.w-full.md\:w-5\/12 > div.mt-1.mb-3')[0].text
+    def get_kata_id(html: str) -> str:
+        try:
+            return BeautifulSoup(html, features="html.parser").select(
+                '#shell_content > div.px-0.w-full > div > div.w-full.md\:w-5\/12 > div.mt-1.mb-3')[0].text
+        except IndexError:
+            return None
 
     @staticmethod
     def get_kata_name(html: str) -> str:
-        return BeautifulSoup(html, features="html.parser").select(
-            '#shell_content > div.px-0.w-full > div > div.w-full.md\:w-5\/12 > div.flex.items-center > h4')[0].text
+        try:
+            return BeautifulSoup(html, features="html.parser").select(
+                '#shell_content > div.px-0.w-full > div > div.w-full.md\:w-5\/12 > div.flex.items-center > h4')[0].text
+        except IndexError:
+            return None
 
     @staticmethod
     def get_kata_author(html: str) -> str:
-        return BeautifulSoup(html, features="html.parser").select(
-            '#shell_content > div.px-0.w-full > div > div.w-full.md\:w-5\/12 > div.mt-1.mb-3 > a.ml-4.mr-0')[0].text
+        try:
+            return BeautifulSoup(html, features="html.parser").select(
+                '#shell_content > div.px-0.w-full > div > div.w-full.md\:w-5\/12 > div.mt-1.mb-3 > a.ml-4.mr-0')[0].text
+        except IndexError:
+            return None
 
     @staticmethod
     def get_kata_author_profile(html: list) -> list:
@@ -54,40 +63,59 @@ class KataScrapper:
 
     @staticmethod
     def get_kata_complexity(html: str) -> KataComplexity:
-        return complexity_mapping.get(BeautifulSoup(html, features="html.parser").select(
-            '#shell_content > div.px-0.w-full > div > div.w-full.md\:w-5\/12 > div.flex.items-center > div > div > span')[
-                                          0].text)
+        try:
+            return complexity_mapping.get(BeautifulSoup(html, features="html.parser").select(
+                '#shell_content > div.px-0.w-full > div > div.w-full.md\:w-5\/12 > div.flex.items-center > div > div > span')[
+                                              0].text)
+        except IndexError:
+            return None
 
     @staticmethod
     def get_kata_published(html: str) -> datetime:
-        published_date = BeautifulSoup(html, features="html.parser").select(
-            '#shell_content > div.w-full.mt-2 > div:nth-child(6) > div > div:nth-child(1) > table > tbody > tr:nth-child(2) > td.p-1.text-right')[
-            0].text
-        return datetime.strptime(published_date, '%b %d, %Y').date()
+        try:
+            published_date = BeautifulSoup(html, features="html.parser").select(
+                '#shell_content > div.w-full.mt-2 > div:nth-child(6) > div > div:nth-child(1) > table > tbody > tr:nth-child(2) > td.p-1.text-right')[
+                0].text
+            return datetime.strptime(published_date, '%b %d, %Y').date()
+        except IndexError:
+            return None
 
     @staticmethod
     def get_kata_warriors_trained(html: int) -> int:
-        return BeautifulSoup(html, features="html.parser").select(
-            '#shell_content > div.w-full.mt-2 > div:nth-child(6) > div > div:nth-child(1) > table > tbody > tr:nth-child(3) > td.p-1.text-right')[
-            0].text
+        try:
+            return BeautifulSoup(html, features="html.parser").select(
+                '#shell_content > div.w-full.mt-2 > div:nth-child(6) > div > div:nth-child(1) > table > tbody > tr:nth-child(3) > td.p-1.text-right')[
+                0].text
+        except IndexError:
+            return None
 
     @staticmethod
     def get_kata_total_skips(html: int) -> int:
-        return BeautifulSoup(html, features="html.parser").select(
-            '#shell_content > div.w-full.mt-2 > div:nth-child(6) > div > div:nth-child(1) > table > tbody > tr:nth-child(4) > td.p-1.text-right')[
-            0].text
+        try:
+            return BeautifulSoup(html, features="html.parser").select(
+                '#shell_content > div.w-full.mt-2 > div:nth-child(6) > div > div:nth-child(1) > table > tbody > tr:nth-child(4) > td.p-1.text-right')[
+                0].text
+        except IndexError:
+            return None
 
     @staticmethod
     def get_kata_total_code_submissions(html: int) -> int:
-        return BeautifulSoup(html, features="html.parser").select(
-            '#shell_content > div.w-full.mt-2 > div:nth-child(6) > div > div:nth-child(1) > table > tbody > tr:nth-child(5) > td.p-1.value.text-right')[
-            0].text
+        try:
+            return BeautifulSoup(html, features="html.parser").select(
+                '#shell_content > div.w-full.mt-2 > div:nth-child(6) > div > div:nth-child(1) > table > tbody > tr:nth-child(5) > td.p-1.value.text-right')[
+                0].text
+
+        except IndexError:
+            return None
 
     @staticmethod
     def get_kata_total_times_completed(html: int) -> int:
-        return BeautifulSoup(html, features="html.parser").select(
-            '#shell_content > div.w-full.mt-2 > div:nth-child(6) > div > div:nth-child(1) > table > tbody > tr:nth-child(6) > td.p-1.text-right')[
-            0].text
+        try:
+            return BeautifulSoup(html, features="html.parser").select(
+                '#shell_content > div.w-full.mt-2 > div:nth-child(6) > div > div:nth-child(1) > table > tbody > tr:nth-child(6) > td.p-1.text-right')[
+                0].text
+        except IndexError:
+            return None
 
     @staticmethod
     def get_kata_total_languages_completions(html: str) -> list[LanguageCompletions]:
@@ -102,60 +130,88 @@ class KataScrapper:
 
     @staticmethod
     def get_kata_total_stars(html: int) -> int:
-        return BeautifulSoup(html, features="html.parser").select(
-            '#shell_content > div.w-full.mt-2 > div:nth-child(6) > div > div:nth-child(1) > table > tbody > tr:nth-child(9) > td.p-1.text-right')[
-            0].text
+        try:
+            return BeautifulSoup(html, features="html.parser").select(
+                '#shell_content > div.w-full.mt-2 > div:nth-child(6) > div > div:nth-child(1) > table > tbody > tr:nth-child(9) > td.p-1.text-right')[
+                0].text
+        except IndexError:
+            return None
 
     @staticmethod
     def get_kata_positive_feedback(html: float) -> float:
-        return BeautifulSoup(html, features="html.parser").select(
-            '#shell_content > div.w-full.mt-2 > div:nth-child(6) > div > div:nth-child(2) > table > tbody > tr:nth-child(1) > td.p-1.text-right')[
-            0].text.split('%')[0]
+        try:
+            return BeautifulSoup(html, features="html.parser").select(
+                '#shell_content > div.w-full.mt-2 > div:nth-child(6) > div > div:nth-child(2) > table > tbody > tr:nth-child(1) > td.p-1.text-right')[
+                0].text.split('%')[0]
+        except IndexError:
+            return None
 
     @staticmethod
     def get_kata_total_very_satisfied_votes(html: int) -> int:
-        return BeautifulSoup(html, features="html.parser").select(
-            '#shell_content > div.w-full.mt-2 > div:nth-child(6) > div > div:nth-child(2) > table > tbody > tr:nth-child(2) > td.p-1.text-right')[
-            0].text
+        try:
+            return BeautifulSoup(html, features="html.parser").select(
+                '#shell_content > div.w-full.mt-2 > div:nth-child(6) > div > div:nth-child(2) > table > tbody > tr:nth-child(2) > td.p-1.text-right')[
+                0].text
+        except IndexError:
+            return None
 
     @staticmethod
     def get_kata_total_somewhat_satisfied_votes(html: int) -> int:
-        return BeautifulSoup(html, features="html.parser").select(
-            '#shell_content > div.w-full.mt-2 > div:nth-child(6) > div > div:nth-child(2) > table > tbody > tr:nth-child(3) > td.p-1.text-right')[
-            0].text
+        try:
+            return BeautifulSoup(html, features="html.parser").select(
+                '#shell_content > div.w-full.mt-2 > div:nth-child(6) > div > div:nth-child(2) > table > tbody > tr:nth-child(3) > td.p-1.text-right')[
+                0].text
+        except IndexError:
+            return None
 
     @staticmethod
     def get_kata_total_not_satisfied_votes(html: int) -> int:
-        return BeautifulSoup(html, features="html.parser").select(
-            '#shell_content > div.w-full.mt-2 > div:nth-child(6) > div > div:nth-child(2) > table > tbody > tr:nth-child(4) > td.p-1.text-right')[
-            0].text
+        try:
+            return BeautifulSoup(html, features="html.parser").select(
+                '#shell_content > div.w-full.mt-2 > div:nth-child(6) > div > div:nth-child(2) > table > tbody > tr:nth-child(4) > td.p-1.text-right')[
+                0].text
+        except IndexError:
+            return None
 
     @staticmethod
     def get_kata_total_rank_assessments(html: int) -> int:
-        return BeautifulSoup(html, features="html.parser").select(
-            '#shell_content > div.w-full.mt-2 > div:nth-child(6) > div > div:nth-child(2) > table > tbody > tr:nth-child(5) > td.p-1.text-right')[
-            0].text
+        try:
+            return BeautifulSoup(html, features="html.parser").select(
+                '#shell_content > div.w-full.mt-2 > div:nth-child(6) > div > div:nth-child(2) > table > tbody > tr:nth-child(5) > td.p-1.text-right')[
+                0].text
+
+        except IndexError:
+            return None
 
     @staticmethod
     def get_kata_average_assessed_rank(html) -> KataComplexity:
-        return complexity_mapping.get(BeautifulSoup(html, features="html.parser").select(
-            '#shell_content > div.w-full.mt-2 > div:nth-child(6) > div > div:nth-child(2) > table > tbody > tr:nth-child(6) > td.p-1.text-right > div > div > span')[
-                                          0].text)
+        try:
+            return complexity_mapping.get(BeautifulSoup(html, features="html.parser").select(
+                '#shell_content > div.w-full.mt-2 > div:nth-child(6) > div > div:nth-child(2) > table > tbody > tr:nth-child(6) > td.p-1.text-right > div > div > span')[
+                                              0].text)
+        except IndexError:
+            return None
 
     @staticmethod
     def get_kata_highest_assessed_rank(html) -> KataComplexity:
-        return complexity_mapping.get(BeautifulSoup(html, features="html.parser").select(
-            '#shell_content > div.w-full.mt-2 > div:nth-child(6) > div > div:nth-child(2) > table > tbody > tr:nth-child(7) > td.p-1.text-right > div > div > span')[
-                                          0].text)
+        try:
+            return complexity_mapping.get(BeautifulSoup(html, features="html.parser").select(
+                '#shell_content > div.w-full.mt-2 > div:nth-child(6) > div > div:nth-child(2) > table > tbody > tr:nth-child(7) > td.p-1.text-right > div > div > span')[
+                                              0].text)
+        except IndexError:
+            return None
 
     @staticmethod
     def get_kata_lowest_assessed_rank(html) -> KataComplexity:
-        return complexity_mapping.get(BeautifulSoup(html, features="html.parser").select(
-            '#shell_content > div.w-full.mt-2 > div:nth-child(6) > div > div:nth-child(2) > table > tbody > tr:nth-child(8) > td.p-1.text-right > div > div > span')[
-                                          0].text)
+        try:
+            return complexity_mapping.get(BeautifulSoup(html, features="html.parser").select(
+                '#shell_content > div.w-full.mt-2 > div:nth-child(6) > div > div:nth-child(2) > table > tbody > tr:nth-child(8) > td.p-1.text-right > div > div > span')[
+                                              0].text)
+        except IndexError:
+            return None
 
 
 if __name__ == '__main__':
     # html = KataScrapper.download_html("https://www.codewars.com/users/kodejuice")
-    html = KataScrapper.download_html("https://www.codewars.com/kata/5ac616ccbc72620a6a000096")
-    print(KataScrapper.get_kata_lowest_assessed_rank(html))
+    html = KataScrapper.download_html("https://www.codewars.com/kata/5672682212c8ecf83e000050")
+    print(KataScrapper.get_kata_total_rank_assessments(html))
