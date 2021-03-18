@@ -1,0 +1,102 @@
+---
+title: 'Tipología y ciclo de vida de los datos'
+subtitle: 'PRÁCTICA 1: Web scrapping'
+author: "Autores: Eleazar Morales Díaz y Susana Vila Melero"
+date: "Marzo 2021"
+output:
+  pdf_document:
+    highlight: zenburn
+    toc: yes
+---
+
+## 1. Contexto.
+
+El conjunto de datos recoge información sobre diferentes ejercicos de programación con la intención de fomentar o desarrollar habilidades y competencias.A dichos ejercicios se les denomina "katas".
+
+### Utilidades
+* Obtener información sobre el interés que suscitan los diferentes lenguajes de programación en el mercado.
+* Análisis estadístico descriptivo del sector del desarrollo del software.
+* Comparativa entre rendimiento, potencia y evolución de los diferentes lenguajes de programación.
+* Desde el punto de vista empresarial, acceso a información valiosa sobre perfiles expertos en los lenguajes de interés.
+
+## 2. Definir un título para el dataset.
+
+Katas (ejercicios de programación) y estadísticas asociadas.
+
+## 3. Descripción del dataset.
+
+Conjunto de datos que recolecta información sobre las katas de programación recientemente resueltas en la plataforma `CodeWars`, con diferentes lenguajes y niveles de dificultad.
+
+## 4. Representación gráfica.
+
+![Primera posibilidad](D:\Dropbox\Dropbox\SUSANA\UOC-Màster\Tipologia_y_Ciclo_Vida_Datos\Repositorios\PRAC1\Imagen dataset.png){width=350 height=350}
+
+
+![Segunda posibilidad](D:\Dropbox\Dropbox\SUSANA\UOC-Màster\Tipologia_y_Ciclo_Vida_Datos\Repositorios\PRAC1\Imagen dataset2.png){width=250 height=250}
+
+## 5. Contenido.
+
+El dataset recoge información de las katas resueltas recientemente, aplicando el filtro *Newest*"*. El número total de katas en esa categoría asciende a 6.931.   
+No se dispone de información sobre la fecha de ejecución de la kata más allá del filtro mencionado anteriormente, pero sí se conoce la fecha de publicación de la kata. Teniendo en cuenta ese dato, el dataset contiene katas publicadas entre el mes de marzo de 2013 y el mes de marzo de 2021.
+
+Para cada una de estas katas, se incluye una línea con los campos que se listan a continuación.
+
+* **id_kata**: identificador único de la kata.
+* **name**: nombre de la kata.
+* **author**: autor de la kata.
+* **author_profiles**: perfiles sociales (si existen) del autor de la kata.
+* **tags**: tags de la kata.
+* **kata_complexity**: complejidad de resolución de la kata; es un valor que va desde *8 kyu* (la más sencilla) a *4 dan* (la más compleja).
+* **published**: fecha de publicación de la kata en la página web.
+* **warriors_trained**: número de personas que han trabajado en la kata.
+* **total_skips**: número de personas que han abandonado la kata sin resolverla.
+* **total_code_submissions**:total de soluciones presentadas.
+* **total_times_completed**: número de veces que la kata ha sido resuelta.
+* **languages_completions**: número de veces que la kata ha sido resuelta por lenguaje de programación.
+* **total_stars**: número de *estrellas* con la que ha sido calificada la kata.
+* **positive_feedback**: Porcentaje de votos positivos sobre el total.
+* **total_very_satisfied_votes**: Número de votantes muy positivos.
+* **total_somewhat_satisfied_votes**: Número de votantes positivos
+* **total_not_satisfied_votes**: Número de votantes insatisfechos.
+* **total_rank_assessments**: número de rangos que han participado en la kata.
+* **average_assessed_rank**: rango medio entre los que han trabajado en la kata.
+* **highest_assessed_rank**: rango más elevado entre los que han trabajado en la kata.
+* **lowest_assessed_rank**: rango inferior entre los que han trabajado en la kata.
+
+Se debe tener en cuenta que ciertas columnas forman una lista variable de elementos, como puede pasar con las columnas **author_profiles**, **tags** y **languages_completions**. En estos casos se usa la siguiente notación:
+
+```bash
+author_profiles = [author_1_uri, author_2_uri]
+
+tags = [tag_1, tag_2]
+
+languages_completions = [(language_1, total_times_completed), (language_2, total_times_completed)]
+```
+
+## 6. Agradecimientos.
+
+Los datos han sido obtenidos de la plataforma Codewars. Se trata de una comunidad web que nace como el esfuerzo colaborativo de usuarios que desinteresadamente aportan katas de entrenamiento, soluciones a las mismas y feedback constructivo. Este servicio ayuda a crecer profesionalmente a la comunidad de desarrolladores en su campo de conocimiento
+
+Hemos encontrado otros análisis similares relativos a lenguajes de programación, por ejemplo el que publica [TIOBE Software](https://www.tiobe.com/tiobe-index/) mediante su **indicador de popularidad de lenguajes de programación** con periodicidad mensual, o la **Developer Survey** que publica anualmente [Stack Overflow](https://insights.stackoverflow.com/survey/2020)
+
+## 7. Inspiración. 
+
+Los estudios citados en el apartado anterior permiten conocer la evolucion temporal del uso de los lenguajes de programación. El dataset obtenido proporciona además respuesta a las siguientes preguntas:
+
+- ¿Qué lenguajes de programación son los preferidos para competir?
+- ¿Cual es el reparto porcentual de usuarios por lenguaje de programación combinando más de uno de ellos?
+- ¿Cómo se distribuyen los desarrolladores según la complejidad de las katas?
+- ¿Qué katas resultan más atractivas y porqué?
+- ¿Soy una empresa de desarrollo de software o un profesional en RRHH ¿Qué perfiles son los más interesantes para la contratación?
+
+## 8. Licencia.
+
+Se ha decidido hacer uso de la licencia **GPLv3** recomendado por la [Free Software Foundation. (FSF)](https://www.gnu.org/licenses/license-recommendations.html). Nos interesa especialmente por las libertades que la misma ofrece a los usuarios. Se permite su distribución, se reconoce el autor de la obra, se permite editar el código fuente, incluso lucrarse economicamente con el mismo. No obstante, no se permite privatizar el software con una licencia que altere las libertades anteriormente expuestas.
+
+## 9. Código.
+
+A continuación se adjunta el código utilizado para la extracción de la información requerida mediante Web Scrapping
+
+## 10. Dataset.
+
+El dataset se ha publicado en formato CSV en Zenodo [DOI]() con la siguiente descripción:
