@@ -11,7 +11,7 @@ output:
 
 ## 1. Contexto.
 
-El conjunto de datos recoge información sobre diferentes ejercicos de programación con la intención de fomentar o desarrollar habilidades y competencias.A dichos ejercicios se les denomina "katas".
+El conjunto de datos recoge información sobre diferentes ejercicios de programación creados con la intención de fomentar o desarrollar habilidades y competencias. A dichos ejercicios se les denomina "katas".
 
 ### Utilidades
 * Obtener información sobre el interés que suscitan los diferentes lenguajes de programación en el mercado.
@@ -36,7 +36,7 @@ Conjunto de datos que recolecta información sobre las katas de programación re
 
 ## 5. Contenido.
 
-El dataset recoge información de las katas resueltas recientemente, aplicando el filtro *Newest*"*. El número total de katas en esa categoría asciende a 6.931.   
+El dataset recoge información de las katas resueltas recientemente, aplicando el filtro *Newest*. El número total de katas en esa categoría asciende a 6.931.   
 No se dispone de información sobre la fecha de ejecución de la kata más allá del filtro mencionado anteriormente, pero sí se conoce la fecha de publicación de la kata. Teniendo en cuenta ese dato, el dataset contiene katas publicadas entre el mes de marzo de 2013 y el mes de marzo de 2021.
 
 Para cada una de estas katas, se incluye una línea con los campos que se listan a continuación.
@@ -95,8 +95,19 @@ Se ha decidido hacer uso de la licencia **GPLv3** recomendado por la [Free Softw
 
 ## 9. Código.
 
-A continuación se adjunta el código utilizado para la extracción de la información requerida mediante Web Scrapping
+A continuación se adjunta el código utilizado para la extracción de la información requerida mediante Web Scrapping.
 
 ## 10. Dataset.
 
 El dataset se ha publicado en formato CSV en Zenodo [DOI]() con la siguiente descripción:
+
+*The dataset contains information extracted from the website “Codewars” about different programming exercises created with the intention of fostering or developing abilities and competences. Said exercises are called “katas”. Our dataset collects information from recently solved katas and their statistics, applying the "Newest" filter. The total number of katas in that category amounts to 6.931. Information about the date of execution is not available beyond the previously mentioned filter, but the date of publication of the kata is known. Taking this factor into account, the dataset contains katas published between March 2013 and March 2021.* 
+
+## Tabla contribuciones
+
+**Contribuciones** |**Firma** |
+----------------------| ----------------------|
+*Investigación Previa* | Eleazar Morales Díaz, Susana Vila Melero |
+*Redacción de las respuestas* | Eleazar Morales Díaz, Susana Vila Melero |
+*Desarrollo del código* | Eleazar Morales Díaz, Susana Vila Melero |
+
