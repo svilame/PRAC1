@@ -36,8 +36,8 @@ Conjunto de datos que recolecta información sobre las katas de programación re
 
 ## 5. Contenido.
 
-El dataset recoge información de las katas resueltas recientemente, aplicando el filtro *Newest*. El número total de katas en esa categoría asciende a 6.931.   
-No se dispone de información sobre la fecha de ejecución de la kata más allá del filtro mencionado anteriormente, pero sí se conoce la fecha de publicación de la kata. Teniendo en cuenta ese dato, el dataset contiene katas publicadas entre el mes de marzo de 2013 y el mes de marzo de 2021.
+El dataset recoge información de las katas resueltas recientemente, aplicando el filtro *Approved*. El número total de katas en esa categoría asciende a 6.932 en la fecha de raspado el 18 de marzo de 2021.   
+No se dispone de información sobre la fecha de ejecución de la kata, pero sí se conoce la fecha de publicación de esta. Teniendo en cuenta ese dato, el dataset contiene katas publicadas entre el mes de marzo de 2013 y el mes de marzo de 2021.
 
 Para cada una de estas katas, se incluye una línea con los campos que se listan a continuación.
 
@@ -48,20 +48,20 @@ Para cada una de estas katas, se incluye una línea con los campos que se listan
 * **tags**: tags de la kata.
 * **kata_complexity**: complejidad de resolución de la kata; es un valor que va desde *8 kyu* (la más sencilla) a *4 dan* (la más compleja).
 * **published**: fecha de publicación de la kata en la página web.
-* **warriors_trained**: número de personas que han trabajado en la kata.
+* **warriors_trained**: número de personas que han entrenado con la kata.
 * **total_skips**: número de personas que han abandonado la kata sin resolverla.
-* **total_code_submissions**:total de soluciones presentadas.
+* **total_code_submissions**: total de soluciones presentadas.
 * **total_times_completed**: número de veces que la kata ha sido resuelta.
 * **languages_completions**: número de veces que la kata ha sido resuelta por lenguaje de programación.
-* **total_stars**: número de *estrellas* con la que ha sido calificada la kata.
+* **total_stars**: número de veces que se ha agregado la kata a favoritos.
 * **positive_feedback**: Porcentaje de votos positivos sobre el total.
 * **total_very_satisfied_votes**: Número de votantes muy positivos.
-* **total_somewhat_satisfied_votes**: Número de votantes positivos
+* **total_somewhat_satisfied_votes**: Número de votantes positivos.
 * **total_not_satisfied_votes**: Número de votantes insatisfechos.
 * **total_rank_assessments**: número de rangos que han participado en la kata.
-* **average_assessed_rank**: rango medio entre los que han trabajado en la kata.
-* **highest_assessed_rank**: rango más elevado entre los que han trabajado en la kata.
-* **lowest_assessed_rank**: rango inferior entre los que han trabajado en la kata.
+* **average_assessed_rank**: rango medio de los que han entrenado con la kata.
+* **highest_assessed_rank**: rango más elevado de los que han entrenado con la kata.
+* **lowest_assessed_rank**: rango inferior de los que han entrenado con la kata.
 
 Se debe tener en cuenta que ciertas columnas forman una lista variable de elementos, como puede pasar con las columnas **author_profiles**, **tags** y **languages_completions**. En estos casos se usa la siguiente notación:
 
@@ -95,13 +95,15 @@ Se ha decidido hacer uso de la licencia **GPLv3** recomendado por la [Free Softw
 
 ## 9. Código.
 
-A continuación se adjunta el código utilizado para la extracción de la información requerida mediante Web Scrapping.
+El código utilizado para la extracción de la información requerida mediante Web Scrapping se puede acceder mediante la siguiente [URL](https://github.com/svilame/PRAC1).
 
 ## 10. Dataset.
 
 El dataset se ha publicado en formato CSV en Zenodo [DOI]() con la siguiente descripción:
 
 *The dataset contains information extracted from the website “Codewars” about different programming exercises created with the intention of fostering or developing abilities and competences. Said exercises are called “katas”. Our dataset collects information from recently solved katas and their statistics, applying the "Newest" filter. The total number of katas in that category amounts to 6.931. Information about the date of execution is not available beyond the previously mentioned filter, but the date of publication of the kata is known. Taking this factor into account, the dataset contains katas published between March 2013 and March 2021.* 
+
+Además se puede leer en la carpeta **data** bajo el siguiente [enlace](https://raw.githubusercontent.com/svilame/PRAC1/main/data/katas.csv).
 
 ## Tabla contribuciones
 
