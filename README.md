@@ -1,100 +1,32 @@
-# PRAC1
-Práctica1 Tipología
+# Práctica1 Tipología
 
-# 1. Contexto. Explicar en qué contexto se ha recolectado la información. Explique por qué el sitio web elegido proporciona dicha información.
+## Descripción
 
-El conjunto de datos recoge información sobre diferentes ejercicos de programación para fomentar o desarrollar habilidades y competencias.
+Esta práctica se ha realizado dentro de la asignatura Tipología y ciclo de vida de los datos, perteneciente al Máster en Ciencia de Datos de la Universitat Oberta de Catalunya. En ella, se aplican técnicas de web scraping mediante el lenguaje de programación Python para extraer así datos de la web Codewars y generar un dataset.
 
-## Utilidades
-* Obtener información sobre tracción del lenguaje de programación en el mercado.
-* Análisis estadístico descriptivo del sector del desarrollo del software.
-* Comparativa entre rendimiento, potencia y evolución de los diferenetes lenguajes de programación.
-* Acceso a información valiosa sobre perfiles expertos en los lenguajes de interés para una empresa.
+## Miembros del equipo
 
-# 2. Definir un título para el dataset. Elegir un título que sea descriptivo.
+La actividad ha sido realizada de manera conjunta por Eleazar Morales Díaz y Susana Vila Melero.
 
-Katas de programación y sus estadísticas.
+## Código fuente
+* `./get_all_katas_ids.py`: Script que obtiene todos los ids de las katas de programación que se encuentran en el servicio web [Codewars](https://www.codewars.com/) y los almacena en el fichero `data/katas.txt`.
+* `./get_all_katas_data.py`: Script que lee el fichero `data/katas.txt`, en el cual obtiene los ids con los que extrae la información de estadísticas para cada una de las katas. Cada kata se escribe en un registro del fichero `data/katas.csv` en donde cada columna se separa con la combinación de caracteres `;;`. Esta decisión ha sido necesaria pues tras obtener en un primer intento todas las katas descubrimos que 3 de ellas poseían el caracter `;`, lo cual rompía el sistema de separación de columnas original.
+* `src/library.py`: Clase de ayuda con métodos estáticos para realizar el raspado de los ids de las katas de una página en concreto. De cada página podemos extraer 30 ids de katas diferentes.
+* `src/codewars_scrapper.py`: Clase de ayuda con métodos estáticos para obtener toda la información de un kata en específico.
+* `src/kata_stats.py`: Conjuntos de clases que generan los objetos kata con sus estadísticas. `KataComplexity`, `LanguageCompletions` y `KataStats`.
 
-# 3. Descripción del dataset. Desarrollar una descripción breve del conjunto de datos que se ha extraído (es necesario que esta descripción tenga sentido con el título elegido).
+## Datos
+* `data/katas.csv`: dataset con la información a detalle de cada kata.
+* `data/katas.txt`: dataset con los ids de todas las katas que existen en la plataforma en el momento del raspado.
 
-Conjunto de datos que recolecta información sobre las katas de programación recientemente resueltas en la plataforma `CodeWars` en los lenguajes [a rellenar]
+## Documentación
+* `docs/Practica1.rmd`: reporte final de la práctica en formato RMarkdown.
+* `docs/Practica1.pdf`: reporte final de la práctica en formato PDF.
 
-# 4. Representación gráfica. Presentar esquema o diagrama que identifique el dataset visualmente y el proyecto elegido.
+## Recursos
 
-*undraw* estadisticas + competicion + karate + leaderboard.
-
-# 5. Contenido. Explicar los campos que incluye el dataset, el periodo de tiempo de los datos y cómo se ha recogido.
-
-El dataset incluye una línea para cada kata con los campos que se listan a continuación.
-
-* id_kata
-* name
-* author
-* author_profiles
-* tags
-* kata_complexity
-* published
-* warriors_trained
-* total_skips
-* total_code_submissions
-* total_times_completed
-
-* languages_completions
-
-* total_stars
-* positive_feedback
-* total_very_satisfied_votes
-* total_somewhat_satisfied_votes
-* total_not_satisfied_votes
-* total_rank_assessments
-* average_assessed_rank
-* highest_assessed_rank
-* lowest_assessed_rank
-
-Se debe tener en cuenta que ciertas columnas forman una lista variable de elementos, como puede pasar con las columnas `author_profiles`, `tags` y `languages_completions`. En estos casos se usa la siguiente notación:
-
-```bash
-author_profiles = [author_1_uri, author_2_uri]
-
-tags = [tag_1, tag_2]
-
-languages_completions = [(language_1, total_times_completed), (language_2, total_times_completed)]
-```
-
-Dado que no es posible obtener información con respecto a la fecha de la subida de soluciones a la kata en cuestión, se ha decidido obtener las `3000` katas más recientes (en cuanto a resolución) de los 8 niveles de dificultad existentes.
-
-# 6. Agradecimientos. Presentar al propietario del conjunto de datos. Es necesario incluir citas de análisis anteriores o, en caso de no haberlas, justificar esta búsqueda con análisis similares.
-
-Los datos han sido obtenidos de la plataforma Codewars. Se trata de una comunidad web que nace como el esfuerzo colaborativo de usuarios que desinteresadamente aportan katas de entrenamiento, soluciones a las mismas y feedback constructivo. Este servicio ilumina a la comunidad de desarrollades y les ayude a crecer profesionalmente en su campo de conocimiento.
-
-INCLUIR CITAS DE ANALISIS ANTERIORES
-https://www.tiobe.com/tiobe-index/
-
-https://www.somostet.com/2020/07/13/top-10-de-las-tecnologias-mas-populares-del-2020-segun-stack-overflow-parte-1/
-
-
-# 7. Inspiración. Explique por qué es interesante este conjunto de datos y qué preguntas se pretenden responder. Es necesario comparar con los análisis anteriores presentados en el apartado 6.
-
-Los estudios citados en el apartado anterior permiten conocer la evolucion temporal del uso de los lenguajes de programación. El dataset obtenido proporciona además respuesta a las siguientes preguntas:
-
-- ¿Qué lenguajes de programación son los preferidos para competir?
-- ¿Cuál es el reparto porcentual de usuarios por lenguaje de programación?
-- ¿Cómo se distribuyen los desarrolladores según complejidad de las katas?
-- `analisis estadistico descriptivo`
-- Soy una empresa de desarrollo de software o un profesional en RRHH ¿Qué perfiles son los más interesantes para la contratación?
-
-
-# 8. Licencia. Seleccione una de estas licencias para su dataset y explique el motivo de su selección:
-
-* Released Under CC0: Public Domain License
-* Released Under CC BY-NC-SA 4.0 License
-* Released Under CC BY-SA 4.0 License
-* Database released under Open Database License individual contents under Database Contents License
-* Other (specified above)
-* Unknown License
-
-Se ha decidido hacer uso de la licencia **GPLv3** recomendado por la [Free Software Foundation. (FSF)](https://www.gnu.org/licenses/license-recommendations.html). Nos interesa especialmente por las libertades que la misma ofrece a los usuarios. Se permite su distribución, se reconoce el autor de la obra, se permite editar el código fuente, incluso lucrarse economicamente con el mismo. No obstante, no se permite privatizar el software con una licencia que altere las libertades anteriormente expuestas.
-
-# 9. Código. Adjuntar el código con el que se ha generado el dataset, preferiblemente en Python o, alternativamente, en R.
-
-# 10. Dataset. Publicación del dataset en formato CSV en Zenodo (obtención del DOI) con una breve descripción.
+* Subirats, L., Calvo, M. (2019). Web Scraping. Editorial UOC.
+* Masip, D. (2010). El lenguaje Python. Editorial UOC.
+* Tutorial de Github https://guides.github.com/activities/hello-world.
+* Lawson, R. (2015). Web Scraping with Python. Packt Publishing Ltd. Chapter 2. Scraping the Data.
+* Simon Munzert, Christian Rubba, Peter Meißner, Dominic Nyhuis. (2015). Automated Data Collection with R: A Practical Guide to Web Scraping and Text Mining. John Wiley & Sons.
