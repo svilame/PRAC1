@@ -50,24 +50,24 @@ class KataStats:
     lowest_assessed_rank: KataComplexity
 
     def get_csv_row_representation(self) -> str:
-        return f"{self.id};" \
-               f"{self.name};" \
-               f"{self.author};" \
-               f"{','.join(self.author_profiles)};" \
-               f"{','.join(self.tags)};" \
-               f"{self.kata_complexity};" \
-               f"{self.published};" \
-               f"{self.warriors_trained};" \
-               f"{self.total_skips};" \
-               f"{self.total_code_submissions};" \
-               f"{self.total_times_completed};" \
-               f"{','.join([f'{lang.programming_language}_{lang.total_completions}' for lang in self.languages_completions])};" \
-               f"{self.total_stars};" \
-               f"{self.positive_feedback};" \
-               f"{self.total_very_satisfied_votes};" \
-               f"{self.total_somewhat_satisfied_votes};" \
-               f"{self.total_not_satisfied_votes};" \
-               f"{self.total_rank_assessments};" \
-               f"{self.average_assessed_rank};" \
-               f"{self.highest_assessed_rank};" \
+        return f"{self.id};;" \
+               f"{self.name};;" \
+               f"{self.author};;" \
+               f"{','.join(self.author_profiles)};;" \
+               f"{','.join(self.tags)};;" \
+               f"{self.kata_complexity};;" \
+               f"{self.published};;" \
+               f"{self.warriors_trained};;" \
+               f"{self.total_skips};;" \
+               f"{self.total_code_submissions};;" \
+               f"{self.total_times_completed};;" \
+               f"{','.join([f'{lang.programming_language}_{lang.total_completions}' for lang in self.languages_completions])};;" \
+               f"{self.total_stars};;" \
+               f"{self.positive_feedback};;" \
+               f"{self.total_very_satisfied_votes};;" \
+               f"{self.total_somewhat_satisfied_votes};;" \
+               f"{self.total_not_satisfied_votes};;" \
+               f"{self.total_rank_assessments};;" \
+               f"{self.average_assessed_rank};;" \
+               f"{self.highest_assessed_rank};;" \
                f"{self.lowest_assessed_rank}"
