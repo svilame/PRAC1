@@ -209,9 +209,3 @@ class KataScrapper:
                                               0].text)
         except IndexError:
             return None
-
-
-if __name__ == '__main__':
-    # html = KataScrapper.download_html("https://www.codewars.com/users/kodejuice")
-    html = KataScrapper.download_html("https://www.codewars.com/kata/5672682212c8ecf83e000050")
-    print(KataScrapper.get_kata_total_rank_assessments(html))

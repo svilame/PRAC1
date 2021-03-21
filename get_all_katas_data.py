@@ -7,8 +7,8 @@ from src.kata_stats import KataStats
 
 if __name__ == '__main__':
     initial_time = datetime.now()
-    with open('katas.txt', 'r') as f:
-        with open('katas.csv', 'w') as csv:
+    with open('data/katas.txt', 'r') as f:
+        with open('data/katas.csv', 'w') as csv:
             index = 1
             for id_kata in f.readlines():
                 id = id_kata[:-1]
