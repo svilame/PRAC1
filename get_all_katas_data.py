@@ -7,9 +7,9 @@ from src.kata_stats import KataStats
 
 if __name__ == '__main__':
     initial_time = datetime.now()
-    with open('data/katas.txt', 'r') as f:
-        with open('data/katas.csv', 'w') as csv:
-            index = 1
+    with open('data/katas.txt', 'r') as f:  # fichero con todos los ids de katas existentes
+        with open('data/katas.csv', 'w') as csv:  # csv a rellenar con los datos de las katas
+            index = 1  # contador de katas
             for id_kata in f.readlines():
                 id = id_kata[:-1]
                 kata_html = KataScrapper.download_html(f"https://www.codewars.com/kata/{id}")
@@ -30,7 +30,7 @@ if __name__ == '__main__':
                                  total_stars=KataScrapper.get_kata_total_stars(kata_html),
                                  positive_feedback=KataScrapper.get_kata_positive_feedback(kata_html),
                                  total_very_satisfied_votes=KataScrapper.get_kata_total_very_satisfied_votes(kata_html),
-                             total_somewhat_satisfied_votes=KataScrapper.get_kata_total_somewhat_satisfied_votes(
+                                 total_somewhat_satisfied_votes=KataScrapper.get_kata_total_somewhat_satisfied_votes(
                                      kata_html),
                                  total_not_satisfied_votes=KataScrapper.get_kata_total_not_satisfied_votes(kata_html),
                                  total_rank_assessments=KataScrapper.get_kata_total_rank_assessments(kata_html),
@@ -38,6 +38,6 @@ if __name__ == '__main__':
                                  highest_assessed_rank=KataScrapper.get_kata_highest_assessed_rank(kata_html),
                                  lowest_assessed_rank=KataScrapper.get_kata_lowest_assessed_rank(kata_html))
                 csv.write(f"{kata.get_csv_row_representation()}{os.linesep}")
-                sleep(0.5)
-                print(f"{index} katas retrieved in {datetime.now() - initial_time}")
+                sleep(0.5)  # Duerme el proceso medio segundo para evitar saturar la web por peticiones
+                print(f"{index} katas retrieved in {datetime.now() - initial_time}") # para informar del proceso
                 index += 1

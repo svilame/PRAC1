@@ -22,8 +22,20 @@ complexity_mapping = {
 
 
 class KataScrapper:
+    """
+    Clase que agrupa métodos estáticos para obtener información diversa con respecto a una kata específica.
+
+    Los métodos son auto-explicativos. Así pues el método `get_kata_id()` sirve para obtener el id de la kata.
+    Además se hace uso de anotaciones python que ayudan a entender el método.
+    Se hace uso de selectores CSS para apuntar al contenido del HTML que se desea extraer.
+    """
+
     @staticmethod
     def download_html(url) -> str:
+        """
+        :param url: dirección única URI para obtener el HTML de la kata a raspar
+        :return: string con el HTML de la página de la kata para poder analizarlo.
+        """
         return requests.get(url).content
 
     @staticmethod
