@@ -10,11 +10,12 @@ if __name__ == '__main__':
     with open('data/katas.txt', 'r') as f:  # fichero con todos los ids de katas existentes
         with open('data/katas.csv', 'w') as csv:  # csv a rellenar con los datos de las katas
             index = 1  # contador de katas
-            for id_kata in f.readlines():
+            for id_kata in f.readlines(): # para cada id de kata
                 id = id_kata[:-1]
                 kata_html = KataScrapper.download_html(f"https://www.codewars.com/kata/{id}")
                 author = name = KataScrapper.get_kata_author(kata_html)
                 author_html = KataScrapper.download_html(f'https://www.codewars.com/users/{author}')
+                # creamos la kata
                 kata = KataStats(id=id,
                                  name=KataScrapper.get_kata_name(kata_html),
                                  author=author,
