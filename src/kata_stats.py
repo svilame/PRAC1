@@ -1,3 +1,6 @@
+"""
+Librería con las clases necesarias para representar una kata.
+"""
 from dataclasses import dataclass
 from datetime import date
 from enum import Enum
@@ -5,6 +8,9 @@ from enum import Enum
 
 @dataclass
 class KataComplexity(Enum):
+    """
+    Cada Kata posee una complejidad que se mide en niveles KYU y DAN.
+    """
     KYU_8 = 0
     KYU_7 = 1
     KYU_6 = 2
@@ -21,12 +27,20 @@ class KataComplexity(Enum):
 
 @dataclass
 class LanguageCompletions(object):
+    """
+    Una kata se puede resolver en varios lenguajes.
+    Esta clase ayuda a crear instancias por cada lenguaje y las veces que se ha completado la kata
+    en dicho lenguaje de programación.
+    """
     programming_language: str
     total_completions: int
 
 
 @dataclass
 class KataStats:
+    """
+    Clase para representar las estadísticas y propiedades de kada Kata.
+    """
     id: str
     name: str
     author: str
@@ -50,6 +64,10 @@ class KataStats:
     lowest_assessed_rank: KataComplexity
 
     def get_csv_row_representation(self) -> str:
+        """
+        Método para obtener la representación de una kata como una fila string en el fichero csv.
+        :return: string con la representación de la kata en forma de una fila en el CSV.
+        """
         return f"{self.id};;" \
                f"{self.name};;" \
                f"{self.author};;" \

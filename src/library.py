@@ -5,8 +5,16 @@ from bs4 import BeautifulSoup
 
 
 class Library:
+    """
+    Clase que agrupa los métodos estáticos para obtener información del total de katas que hay en la web y sus ids.
+    """
     @staticmethod
     def download_html(url) -> str:
+        """
+        :param url: dirección de la web de búsqueda de katas
+        :return: string con el HTML de la web de búsqueda de katas.
+        Por cada página se pueden extraer 30 ids de katas aprox.
+        """
         return requests.get(url).content
 
     @staticmethod
@@ -21,6 +29,11 @@ class Library:
 
     @staticmethod
     def append_kata_id_to_txt(path: str, katas_ids: list[str]):
+        """
+        It will write all the ids in a file
+        :param path: ruta del archivo de salida
+        :param katas_ids: lista con los ids de las katas
+        """
         mode = 'a' if os.path.exists(path) else 'w'
         with open(path, mode) as f:
             for kata_id in katas_ids:
