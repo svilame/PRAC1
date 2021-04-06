@@ -7,12 +7,15 @@ output:
   pdf_document:
     highlight: zenburn
     toc: yes
+header-includes:
+  - \usepackage {hyperref}
+  - \hypersetup {colorlinks = true, linkcolor = blue, urlcolor = blue}
 ---
 
 ## 1. Contexto.
 
-En los últimos años el Software Libre ha pasado de ser un simple modelo de desarrollo de software a ser un elemento clave en las estrategias de desarrollo de empresas, instituciones, regiones e incluso países enteros como se comenta en el artículo [**Software libre: investigación y desarrollo**](http://www2.ati.es/novatica/2007/190/Nv190-3.pdf). Dado el papel predominante que juega, además, en el campo de la ciencia de datos, hemos querido investigar un poco más. Ya se publican periódicamente análisis relativos a los lenguajes de programación (como mencionamos en el apartado 6 de este documento), pero nuestro interés se centra más en el entorno no profesional. Es decir, queremos analizar los lenguajes de programación desde un punto de vista relativo al reto personal que suponen más que desde un punto de vista profesional.    
-Es por eso que hemos elegido una página web llamada [**Codewars**](https://www.codewars.com/) en la que usuarios avanzados publican retos de programación creados con la intención de fomentar o desarrollar habilidades y competencias. A dichos retos se les denomina "katas". Y sobre esos ejercicios es sobre los que hemos aplicado nuestro *web scrapping*.
+En los últimos años el Software Libre/Abierto ha pasado de ser un simple modelo de desarrollo de software a ser un elemento clave en las estrategias de desarrollo de empresas, instituciones, regiones e incluso países enteros como se comenta en el artículo [Software libre: investigación y desarrollo](http://www2.ati.es/novatica/2007/190/Nv190-3.pdf). Dado el papel predominante que juega, además, en el campo de la ciencia de datos, hemos querido investigar un poco más. Ya se publican periódicamente análisis relativos a los lenguajes de programación (como mencionamos en el apartado 6 de este documento), pero nuestro interés se centra más en el entorno no profesional. Es decir, queremos analizar los lenguajes de programación desde un punto de vista relativo al reto personal que suponen más que desde un punto de vista profesional.    
+Es por eso que hemos elegido una página web llamada [Codewars](https://www.codewars.com/) en la que usuarios avanzados publican retos de programación completamente públicos, de libre acceso, con la intención de fomentar o desarrollar habilidades y competencias. A dichos retos se les denomina "katas". Y sobre esos ejercicios es sobre los que hemos aplicado nuestro *web scrapping*.
 
 ### Utilidades
 * Obtener información sobre el interés que suscitan los diferentes lenguajes de programación en el mercado.
@@ -104,7 +107,7 @@ El índice TIOBE analiza el número de veces que se menciona un lenguaje de prog
 Para que un lenguaje de programación se considere como tal, debe tener un número de menciones igual o superior a 5.000, tener una entrada propia y superar el test de Turing.
 Con los datos anteriores, se genera una clasificación por número de menciones y se compara con la misma clasificación del mes anterior, de forma que se obtiene no solo la posición absoluta de cada lenguaje en cuánto a popularidad, sino también su tendencia.
 
-Más información respecto a como se calcula el índice TIOBE [**aquí**](https://www.tiobe.com/tiobe-index/programming-languages-definition/)
+Más información respecto a como se calcula el índice TIOBE [aquí](https://www.tiobe.com/tiobe-index/programming-languages-definition/)
 
 ### 7.2 Stack Overflow
 
@@ -126,11 +129,13 @@ Los estudios citados en el apartado anterior permiten conocer la evolucion tempo
 + ¿Cual es el reparto porcentual de usuarios por lenguaje de programación combinando más de uno de ellos?
 + ¿Cómo se distribuyen los desarrolladores según la complejidad de las katas?
 + ¿Qué katas resultan más atractivas y porqué?
-+ ¿Soy una empresa de desarrollo de software o un profesional en RRHH: 
-  +¿Qué perfiles son los más completos en cuánto a conocimientos para la contratación?
-  +¿...más persistentes ante los problemas?
-  +¿...más creativos en las resoluciones de estos?
-  + Una vez tengo identificados los perfiles que me interesan, ¿puedo obtener su información profesional en sus perfiles de RRSS?
+
+Soy una empresa de desarrollo de software o un profesional en RRHH: 
+
++ ¿Qué perfiles son los más completos en cuánto a conocimientos para la contratación?
++ ¿...más persistentes ante los problemas?
++ ¿...más creativos en las resoluciones de estos?
++ Una vez tengo identificados los perfiles que me interesan, ¿puedo obtener su información profesional en sus perfiles de RRSS?
   
 
 
@@ -144,7 +149,7 @@ El código utilizado para la extracción de la información requerida mediante W
 
 ## 10. Dataset.
 
-El dataset se ha publicado en formato CSV en Zenodo [DOI]() con la siguiente descripción:
+El dataset se ha publicado en formato CSV en Zenodo [DOI. 10.5281/zenodo.4664585](10.5281/zenodo.4664585) con la siguiente descripción:
 
 *The dataset contains information extracted from the website “Codewars” about different programming exercises created with the intention of fostering or developing abilities and competences. Said exercises are called “katas”. Our dataset collects information from recently solved katas and their statistics, applying the "Approved" filter. The total number of katas in that category amounts to 6.932 (18th March, 2021). Information about the date of execution is not available beyond the previously mentioned filter, but the date of publication of the kata is known. Taking this factor into account, the dataset contains katas published between March 2013 and March 2021.* 
 
