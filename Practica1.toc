@@ -1,0 +1,12 @@
+\contentsline {subsection}{1. Contexto.}{1}{section*.2}%
+\contentsline {subsubsection}{Utilidades}{1}{section*.3}%
+\contentsline {subsection}{2. Definir un título para el dataset.}{1}{section*.4}%
+\contentsline {subsection}{3. Descripción del dataset.}{2}{section*.5}%
+\contentsline {subsection}{4. Representación gráfica.}{2}{section*.6}%
+\contentsline {subsection}{5. Contenido.}{2}{section*.7}%
+\contentsline {subsection}{6. Agradecimientos.}{3}{section*.8}%
+\contentsline {subsection}{7. Inspiración.}{3}{section*.9}%
+\contentsline {subsection}{8. Licencia.}{4}{section*.10}%
+\contentsline {subsection}{9. Código.}{4}{section*.11}%
+\contentsline {subsection}{10. Dataset.}{4}{section*.12}%
+\contentsline {subsection}{Tabla contribuciones}{4}{section*.13}%

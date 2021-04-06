@@ -1,0 +1,15 @@
+\contentsline {subsection}{1. Contexto.}{1}{section*.2}%
+\contentsline {subsubsection}{Utilidades}{2}{section*.3}%
+\contentsline {subsection}{2. Definir un título para el dataset.}{2}{section*.4}%
+\contentsline {subsection}{3. Descripción del dataset.}{2}{section*.5}%
+\contentsline {subsection}{4. Representación gráfica.}{3}{section*.6}%
+\contentsline {subsection}{5. Contenido.}{3}{section*.7}%
+\contentsline {subsection}{6. Agradecimientos.}{4}{section*.8}%
+\contentsline {subsection}{7. Inspiración.}{4}{section*.9}%
+\contentsline {subsubsection}{7.1 TIOBE index}{4}{section*.10}%
+\contentsline {subsubsection}{7.2 Stack Overflow}{4}{section*.11}%
+\contentsline {subsubsection}{7.3 Nuestra propuesta}{4}{section*.12}%
+\contentsline {subsection}{8. Licencia.}{5}{section*.13}%
+\contentsline {subsection}{9. Código.}{5}{section*.14}%
+\contentsline {subsection}{10. Dataset.}{5}{section*.15}%
+\contentsline {subsection}{Tabla contribuciones}{5}{section*.16}%
