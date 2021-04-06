@@ -11,8 +11,7 @@ output:
 
 ## 1. Contexto.
 
-En los últimos años el Software Libre ha pasado de ser un simple modelo de desarrollo de software a ser un elemento clave en las estrategias de desarrollo de empresas, instituciones, regiones e incluso países enteros como se comenta en el artículo [**Software libre: investigación y desarrollo**](http://www2.ati.es/novatica/2007/190/Nv190-3.pdf). Dado el papel predominante que juega, además, en el campo de la ciencia de datos, hemos querido investigar un poco más. Ya se publican periódicamente análisis relativos a los lenguajes de programación (como mencionamos en el apartado 6 de este documento), pero nuestro interés se centra más en el entorno no profesional. Es decir, queremos analizar los lenguajes de programación desde un punto de vista relativo al reto personal que suponen más que desde un punto de vista profesional.    
-Es por eso que hemos elegido una página web llamada [**Codewars**](https://www.codewars.com/) en la que usuarios avanzados publican retos de programación creados con la intención de fomentar o desarrollar habilidades y competencias. A dichos retos se les denomina "katas". Y sobre esos ejercicios es sobre los que hemos aplicado nuestro *web scrapping*.
+El conjunto de datos recoge información sobre diferentes ejercicios de programación creados con la intención de fomentar o desarrollar habilidades y competencias. A dichos ejercicios se les denomina "katas".
 
 ### Utilidades
 * Obtener información sobre el interés que suscitan los diferentes lenguajes de programación en el mercado.
@@ -26,7 +25,21 @@ Katas (ejercicios de programación) y estadísticas asociadas.
 
 ## 3. Descripción del dataset.
 
-El conjunto de datos recoge información sobre las katas de programación resueltas en la plataforma `CodeWars`, con diferentes lenguajes y niveles de dificultad. En total, consta de 6.932 registros en la fecha de recogida de información (18 de marzo de 2021). Cada uno de estos registros se corresponde a una única kata, para la que se obtienen 21 variables diferentes que se listan y detallan a continuación:
+Conjunto de datos que recolecta información sobre las katas de programación recientemente resueltas en la plataforma `CodeWars`, con diferentes lenguajes y niveles de dificultad.
+
+## 4. Representación gráfica.
+
+![Primera posibilidad](D:\Dropbox\Dropbox\SUSANA\UOC-Màster\Tipologia_y_Ciclo_Vida_Datos\Repositorios\PRAC1\Imagen dataset.png){width=350 height=350}
+
+
+![Segunda posibilidad](D:\Dropbox\Dropbox\SUSANA\UOC-Màster\Tipologia_y_Ciclo_Vida_Datos\Repositorios\PRAC1\Imagen dataset2.png){width=250 height=250}
+
+## 5. Contenido.
+
+El dataset recoge información de las katas resueltas recientemente, aplicando el filtro *Approved*. El número total de katas en esa categoría asciende a 6.932 en la fecha de raspado el 18 de marzo de 2021.   
+No se dispone de información sobre la fecha de ejecución de la kata, pero sí se conoce la fecha de publicación de esta. Teniendo en cuenta ese dato, el dataset contiene katas publicadas entre el mes de marzo de 2013 y el mes de marzo de 2021.
+
+Para cada una de estas katas, se incluye una línea con los campos que se listan a continuación.
 
 * **id_kata**: identificador único de la kata.
 * **name**: nombre de la kata.
@@ -50,34 +63,7 @@ El conjunto de datos recoge información sobre las katas de programación resuel
 * **highest_assessed_rank**: rango más elevado de los que han entrenado con la kata.
 * **lowest_assessed_rank**: rango inferior de los que han entrenado con la kata.
 
-
-## 4. Representación gráfica.
-
-![Estadísticas de Katas](D:\Dropbox\Dropbox\SUSANA\UOC-Màster\Tipologia_y_Ciclo_Vida_Datos\Repositorios\PRAC1\Imagen dataset.png){width=350 heigth=350}
-![Competición de Katas](D:\Dropbox\Dropbox\SUSANA\UOC-Màster\Tipologia_y_Ciclo_Vida_Datos\Repositorios\PRAC1\Imagen dataset2.png){width=250 heigth=250}
-
-## 5. Contenido.
-
-A la hora de seleccionar la página web de la que extraer la información, hemos aplicado las buenas prácticas recogidas en el material de la asignatura:
-
-
-
-* Uso del fichero *robots.txt* para confirmar que el propietario de los datos permite el acceso a la información.
-* Examen del sitio Web y su estructura para identificar la ubicación de la información que queremos obtener.
-* Análisis del tamaño y tecnología de la página web para evaluar la cantidad total de información a recoger.
-* Utilización de la libreria BeautifulSoup para evitar el parseado manual.
-* No saturar de peticiones el servidor web, para lo que hemos establecido un tiempo de espera entre petición y petición.
-
-Por otro lado, respecto a la información a recoger:
-
-
-
-* El dataset incluye las katas resueltas que tienen el filtro *Approved*. 
-* El número total de katas en esa categoría asciende a 6.932 en la fecha de obtención de la información (18 de marzo de 2021). 
-* No se dispone de información sobre la fecha de ejecución de la kata, pero sí se conoce la fecha de publicación de esta. Teniendo en cuenta ese dato, el dataset contiene katas publicadas entre el mes de marzo de 2013 y el mes de marzo de 2021. 
-* Además, para cada una de esas katas, se recogen 21 variables listadas en el apartado 3 de este documento.
-
-En cuánto a la extracción del contenido, para la mayoría de las variables recogidas ha sido directa una vez ubicada la información. No obstante, ciertas columnas forman una lista variable de elementos, como puede pasar con las columnas **author_profiles**, **tags** y **languages_completions**. En estos casos se usa la siguiente notación:
+Se debe tener en cuenta que ciertas columnas forman una lista variable de elementos, como puede pasar con las columnas **author_profiles**, **tags** y **languages_completions**. En estos casos se usa la siguiente notación:
 
 ```bash
 author_profiles = [author_1_uri, author_2_uri]
@@ -87,7 +73,6 @@ tags = [tag_1, tag_2]
 languages_completions = [(language_1, total_times_completed), (language_2, total_times_completed)]
 ```
 
-
 ## 6. Agradecimientos.
 
 Los datos han sido obtenidos de la plataforma Codewars. Se trata de una comunidad web que nace como el esfuerzo colaborativo de usuarios que desinteresadamente aportan katas de entrenamiento, soluciones a las mismas y feedback constructivo. Este servicio ayuda a crecer profesionalmente a la comunidad de desarrolladores en su campo de conocimiento
@@ -96,43 +81,13 @@ Hemos encontrado otros análisis similares relativos a lenguajes de programació
 
 ## 7. Inspiración. 
 
-El auge del del software libre en los últimos años es la base de partida de esta práctica. Analizando la información existente al respecto, encontramos los dos estudios relativos a lenguajes de programación mencionados anteriormente. Veamos los datos que se obtienen en ambos casos:
+Los estudios citados en el apartado anterior permiten conocer la evolucion temporal del uso de los lenguajes de programación. El dataset obtenido proporciona además respuesta a las siguientes preguntas:
 
-### 7.1 TIOBE index
-
-El índice TIOBE analiza el número de veces que se menciona un lenguaje de programación en los 25 principales motores de búsqueda.
-Para que un lenguaje de programación se considere como tal, debe tener un número de menciones igual o superior a 5.000, tener una entrada propia y superar el test de Turing.
-Con los datos anteriores, se genera una clasificación por número de menciones y se compara con la misma clasificación del mes anterior, de forma que se obtiene no solo la posición absoluta de cada lenguaje en cuánto a popularidad, sino también su tendencia.
-
-Más información respecto a como se calcula el índice TIOBE [**aquí**](https://www.tiobe.com/tiobe-index/programming-languages-definition/)
-
-### 7.2 Stack Overflow
-
-El informe de Stack Overflow es bastante más extenso que el anterior en cuanto a información obtenida. Se basa en una encuesta llevada a cabo entre los usuarios de la página web que el año pasado tuvo más de 65.000 respuestas. Recolecta información sobre cuatro campos principales:
-
-
-
-
-* Desarrolladores: ubicación geográfica, tipos, experiencia, educación e información demográfica
-* Tecnología: popularidad, entornos y herramientas de desarrollo, mejor pagadas, correlaciones, aprendizaje y resolución de problemas
-* Trabajo: empleos, información de compañías, valores, búsqueda de trabajo, prioridades y salario.
-* Comunidad: Uso del sitio, frecuencia de uso y propuestas de mejora.
-
-### 7.3 Nuestra propuesta
-
-Los estudios citados en el apartado anterior permiten conocer la evolucion temporal del uso de los lenguajes de programación en el primer caso y información muy interesante sobre el mundo del desarrollo del software en el segundo caso (aunque sesgada ya que se obtiene a partir de los usuarios de una página web en concreto). Creemos que nuestro dataset, sin ser tan ambicioso como los estudios anteriores puede aportar información interesante dando respuesta respuesta a las siguientes preguntas:
-
-+ ¿Qué lenguajes de programación son los preferidos para competir, al margen del entorno profesional?
-+ ¿Cual es el reparto porcentual de usuarios por lenguaje de programación combinando más de uno de ellos?
-+ ¿Cómo se distribuyen los desarrolladores según la complejidad de las katas?
-+ ¿Qué katas resultan más atractivas y porqué?
-+ ¿Soy una empresa de desarrollo de software o un profesional en RRHH: 
-  +¿Qué perfiles son los más completos en cuánto a conocimientos para la contratación?
-  +¿...más persistentes ante los problemas?
-  +¿...más creativos en las resoluciones de estos?
-  + Una vez tengo identificados los perfiles que me interesan, ¿puedo obtener su información profesional en sus perfiles de RRSS?
-  
-
+- ¿Qué lenguajes de programación son los preferidos para competir?
+- ¿Cual es el reparto porcentual de usuarios por lenguaje de programación combinando más de uno de ellos?
+- ¿Cómo se distribuyen los desarrolladores según la complejidad de las katas?
+- ¿Qué katas resultan más atractivas y porqué?
+- ¿Soy una empresa de desarrollo de software o un profesional en RRHH ¿Qué perfiles son los más interesantes para la contratación?
 
 ## 8. Licencia.
 
@@ -146,7 +101,7 @@ El código utilizado para la extracción de la información requerida mediante W
 
 El dataset se ha publicado en formato CSV en Zenodo [DOI]() con la siguiente descripción:
 
-*The dataset contains information extracted from the website “Codewars” about different programming exercises created with the intention of fostering or developing abilities and competences. Said exercises are called “katas”. Our dataset collects information from recently solved katas and their statistics, applying the "Approved" filter. The total number of katas in that category amounts to 6.932 (18th March, 2021). Information about the date of execution is not available beyond the previously mentioned filter, but the date of publication of the kata is known. Taking this factor into account, the dataset contains katas published between March 2013 and March 2021.* 
+*The dataset contains information extracted from the website “Codewars” about different programming exercises created with the intention of fostering or developing abilities and competences. Said exercises are called “katas”. Our dataset collects information from recently solved katas and their statistics, applying the "Newest" filter. The total number of katas in that category amounts to 6.931. Information about the date of execution is not available beyond the previously mentioned filter, but the date of publication of the kata is known. Taking this factor into account, the dataset contains katas published between March 2013 and March 2021.* 
 
 Además se puede leer en la carpeta **data** bajo el siguiente [enlace](https://raw.githubusercontent.com/svilame/PRAC1/main/data/katas.csv).
 
