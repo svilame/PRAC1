@@ -53,8 +53,8 @@ El conjunto de datos recoge información sobre las katas de programación resuel
 
 ## 4. Representación gráfica.
 
-![Estadísticas de Katas](D:\Dropbox\Dropbox\SUSANA\UOC-Màster\Tipologia_y_Ciclo_Vida_Datos\Repositorios\PRAC1\Imagen dataset.png){width=350 heigth=350}
-![Competición de Katas](D:\Dropbox\Dropbox\SUSANA\UOC-Màster\Tipologia_y_Ciclo_Vida_Datos\Repositorios\PRAC1\Imagen dataset2.png){width=250 heigth=250}
+![Estadísticas de Katas](../assets/img1.png){width=350 heigth=350}
+![Competición de Katas](../assets/img2.png){width=250 heigth=250}
 
 ## 5. Contenido.
 
